@@ -34,11 +34,11 @@ http://54.213.118.45/beam/web_service/country/list
  */
 public class MainActivity extends AppCompatActivity {
 //    public final static String EXTRA_MESSAGE = "com.mycompany.myfirstapp.MESSAGE"; // Hmmmm
-    TextToSpeech ttsobj;    // TTS Object
+    TextToSpeech ttsobj, t1;    // TTS Object
     String hostName;
     float speechRate;   // setSpeechRate(float speechRate)
     int localeLanguage; // ttsobj.setLanguage(Locale.UK); 1 = US, 0 = UK
-//    EditText ed1;       // Test to enter text for TTS
+    EditText ed1;       // Test to enter text for TTS
     Button btnStart;    // This is to start/stop the playback (main button on the front page of the app)
 
     public void settingsActivity(View view) {
@@ -69,19 +69,19 @@ public class MainActivity extends AppCompatActivity {
         btnStart=(Button)findViewById(R.id.btnStart);
 
 
-        ed1=(EditText)findViewById(R.id.editText);
-        // b1=(Button)findViewById(R.id.button);
+        ed1 = (EditText) findViewById(R.id.editText);
+        //b1=(Button)findViewById(R.id.button);
 
-        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+        t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
-                if(status != TextToSpeech.ERROR) {
+                if (status != TextToSpeech.ERROR) {
                     t1.setLanguage(Locale.UK);
                 }
             }
         });
 
-        b1.setOnClickListener(new View.OnClickListener() {
+        btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String toSpeak = ed1.getText().toString();
